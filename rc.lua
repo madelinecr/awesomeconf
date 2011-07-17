@@ -67,6 +67,55 @@ mygamesmenu = {
    { "minecraft", "/home/sensae/bin/minecraft/start.sh" },
 }
 
+mygraphicsmenu = {
+   { "gimp", "gimp" },
+   { "inkscape", "inkscape" },
+}
+
+mynetmenu = {
+   { "chromium", "chromium" },
+   { "skype", "skype" },
+   { "transmission", "transmission" },
+}
+
+mymediamenu = {
+   { "amarok", "amarok" },
+   { "epdfview", "epdfview" },
+   { "mirage", "mirage" },
+   { "sonata", "sonata" },
+   { "totem", "totem" },
+   { "vlc", "vlc" },
+}
+
+myofficemenu = {
+   { "galculator", "galculator" },
+   { "libreoffice", "libreoffice" },
+}
+
+mycodemenu = {
+   { "ddd", "ddd" },
+   { "giggle", "giggle" },
+}
+
+myutilmenu = {
+   { "brasero", "brasero" },
+   { "gvim", "gvim" },
+   { "keepassx", "keepassx" },
+   { "mousepad", "mousepad" },
+   { "truecrypt", "truecrypt" },
+   { "terminal", "terminal" },
+   { "virtualbox", "virtualbox" },
+}
+
+myprefsmenu = {
+   { "dconf editor", "dconf-editor" },
+   { "notifications", "xfce4-notifyd-config" },
+   { "gtk theme", "gtk-theme-switch2" },
+   { "cups", "chromium localhost:631" },
+}
+
+
+
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
@@ -80,6 +129,13 @@ mymainmenu = awful.menu({ items = {
                                     { "thunar", "thunar" },
                                     { "terminal", "terminal" },
                                     { "games", mygamesmenu },
+                                    { "graphics", mygraphicsmenu },
+                                    { "net", mynetmenu },
+                                    { "media", mymediamenu },
+                                    { "office", myofficemenu },
+                                    { "code", mycodemenu },
+                                    { "utils", myutilmenu },
+                                    { "prefs", myprefsmenu },
                                     { "awesome", myawesomemenu, beautiful.awesome_icon },
                                   }
                         })
