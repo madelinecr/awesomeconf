@@ -7,6 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 -- Widget library
+require("vicious")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -148,6 +149,14 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
+-- CPU Usage Widget
+mycpuwidget = widget({ type = "textbox" })
+vicious.register(mycpuwidget, vicious.widgets.cpu, '<span color="white">CPU:</span> $1% ')
+
+-- Memory Usage widget
+mymemwidget = widget({ type = "textbox" })
+vicious.register(mymemwidget, vicious.widgets.mem, '<span color="white">Mem:</span> $1% ($2Mb/$3Mb) ')
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
@@ -227,6 +236,8 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        mymemwidget,
+        mycpuwidget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
