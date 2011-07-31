@@ -66,6 +66,7 @@ mygamesmenu = {
    { "dwarf fortress", "/home/sensae/bin/df_linux/df" },
    { "dwarf therapist", "dwarftherapist" },
    { "minecraft", "/home/sensae/bin/minecraft/start.sh" },
+   { "crayonphys", "/home/sensae/bin/CrayonPhysicsDeluxe/crayon" },
 }
 
 mygraphicsmenu = {
