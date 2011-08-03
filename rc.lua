@@ -12,6 +12,7 @@ require("vicious")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+wallpaper_cmd = { "exec `cat ~/.fehbg`" }
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminal"
@@ -147,7 +148,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- }}}
 
 -- {{{ Wibox
--- Create a textclock widget
+-- Textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- CPU Usage Widget
@@ -157,6 +158,16 @@ vicious.register(mycpuwidget, vicious.widgets.cpu, '<span color="white">CPU:</sp
 -- Memory Usage widget
 mymemwidget = widget({ type = "textbox" })
 vicious.register(mymemwidget, vicious.widgets.mem, '<span color="white">Mem:</span> $1% ($2Mb/$3Mb) ')
+
+-- Net widget
+mynetwidget = widget({ type = "textbox" })
+vicious.register(mynetwidget, vicious.widgets.net, 
+                 '<span color="white">Net:</span> &#9650; ${eth0 up_kb}kb &#9660; ${eth0 down_kb}kb ')
+
+-- Uptime widget
+myuptimewidget = widget({ type = "textbox" })
+vicious.register(myuptimewidget, vicious.widgets.uptime,
+                 '<span color="white">Up:</span> $1d$2h$3m <span color="white">Load:</span> $4 $5 $6')
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -237,9 +248,11 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-        mymemwidget,
-        mycpuwidget,
+        s == 1 and mymemwidget or nil,
+        s == 1 and mycpuwidget or nil,
         s == 1 and mysystray or nil,
+        s == 2 and myuptimewidget or nil,
+        s == 2 and mynetwidget or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
