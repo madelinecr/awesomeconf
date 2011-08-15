@@ -78,7 +78,7 @@ mygraphicsmenu = {
 mynetmenu = {
    { "chromium", "chromium" },
    { "skype", "skype" },
-   { "transmission", "transmission" },
+   { "transmission", "transmission-gtk" },
 }
 
 mymediamenu = {
