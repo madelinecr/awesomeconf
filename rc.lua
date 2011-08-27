@@ -48,7 +48,7 @@ layouts =
 -- Define a tag table which hold all screen tags.
 tags = {}
 s1_names = { "web", "code", 3, 4, 5, 6, 7, 8, 9 }
-s2_names = { "comm", "debug", 3, 4, 5, 6, 7, 8, 9 }
+s2_names = { "comm", "tools", "debug", 4, 5, 6, 7, 8, 9 }
 
 s1_layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
            layouts[2], layouts[2], layouts[2], layouts[2] }
